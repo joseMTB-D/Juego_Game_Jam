@@ -13,6 +13,7 @@ public class UserController : MonoBehaviour
     public float vida;
     public float speed;
     public bool morite;
+    public float caida;
     //armas
     public GameObject santisima;
     public GameObject supersantisima;
@@ -28,6 +29,7 @@ public class UserController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        caida = 0.0f;
         morite = false;
         vida = 100.0f;
         rb2D = GetComponent<Rigidbody2D>();
@@ -43,26 +45,31 @@ public class UserController : MonoBehaviour
         }else if (morite == false)
         {
 
-        
+            float moveVertical = this.GetAxis("Vertical");
         float moveHorizontal = Input.GetAxis("Horizontal");
 
             if (moveHorizontal > 0)
             {
+                yubes.SetInteger("idle", 1);
 
-                transform.eulerAngles = new Vector3(0, 0, 0);
+                transform.eulerAngles = new Vector3(0, 180, 0);
                 rb2D.velocity = new Vector3(speed, 0.0f, 0.0f);
 
             }
             else if (moveHorizontal < 0)
             {
 
-                //EPMario.SetInteger("move", 11);
-                transform.eulerAngles = new Vector3(0, 180, 0);
+                yubes.SetInteger("idle", 1);
+                transform.eulerAngles = new Vector3(0, 0, 0);
                 rb2D.velocity = new Vector3(-speed, 0.0f, 0.0f);
 
 
+            }else if (moveHorizontal == 0)
+            {
+                yubes.SetInteger("idle", 0);
+
             }
-                if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E))
                 {
 
 
