@@ -14,6 +14,7 @@ public class UserController : MonoBehaviour
     public float speed;
     public bool morite;
     public float caida;
+    private bool suelo;
     //armas
     public GameObject santisima;
     public GameObject supersantisima;
@@ -29,6 +30,7 @@ public class UserController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        suelo = false;
         caida = 0.0f;
         morite = false;
         vida = 100.0f;
@@ -39,53 +41,76 @@ public class UserController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(suelo);
         if (morite == true)
         {
 
         }else if (morite == false)
         {
-
-            float moveVertical = this.GetAxis("Vertical");
-        float moveHorizontal = Input.GetAxis("Horizontal");
-
-            if (moveHorizontal > 0)
-            {
-                yubes.SetInteger("idle", 1);
-
-                transform.eulerAngles = new Vector3(0, 180, 0);
-                rb2D.velocity = new Vector3(speed, 0.0f, 0.0f);
-
-            }
-            else if (moveHorizontal < 0)
+            //movimiento player
+            float moveHorizontal = Input.GetAxis("Horizontal");
+            if (suelo ==true)
             {
 
-                yubes.SetInteger("idle", 1);
-                transform.eulerAngles = new Vector3(0, 0, 0);
-                rb2D.velocity = new Vector3(-speed, 0.0f, 0.0f);
+                if (moveHorizontal > 0)
+                {
+                    yubes.SetInteger("idle", 1);
+
+                    transform.eulerAngles = new Vector3(0, 180, 0);
+                    rb2D.velocity = new Vector3(speed, 0.0f, 0.0f);
+
+                }
+                else if (moveHorizontal < 0)
+                {
+
+                    yubes.SetInteger("idle", 1);
+                    transform.eulerAngles = new Vector3(0, 0, 0);
+                    rb2D.velocity = new Vector3(-speed, 0.0f, 0.0f);
 
 
-            }else if (moveHorizontal == 0)
-            {
-                yubes.SetInteger("idle", 0);
+                }
+                else if (moveHorizontal == 0)
+                {
+                    yubes.SetInteger("idle", 0);
 
-            }
-            if (Input.GetKeyDown(KeyCode.E))
+                }
+                if (Input.GetKeyDown(KeyCode.E))
                 {
 
 
                     if (transform.rotation.y == 0)
                     {
-                        Instantiate(santisima, transform.position + new Vector3(0.45f, 0.0f, 0.0f), transform.rotation);
+                        Instantiate(santisima, transform.position - new Vector3(0.80f, 0.0f, 0.0f), Quaternion.Euler(0.0f, 180f, 0.0f));
+
                     }
                     else
                     {
-                        Instantiate(santisima, transform.position - new Vector3(0.10f, 0.0f, 0.0f), Quaternion.Euler(0.0f, 180f, 0.0f));
+                        Instantiate(santisima, transform.position + new Vector3(0.80f, 0.0f, 0.0f), transform.rotation);
                     }
 
-
-
                 }
+                if ((caida > 1)&&(caida<4))
+                {
+                    int dañoc = (int)caida * 25;
+                    Debug.Log(caida);
+
+                    caida = 0;
+                    Daño_Player(dañoc);
+                }
+                else if(caida>4)
+                {
+                    vida = 0;
+                }
+                
             }
+            else
+            {
+                caida = caida + Time.deltaTime;
+                
+            }
+
+        }
+          
         }
     
     void OnTriggerEnter2D(Collider2D other)
@@ -101,6 +126,10 @@ public class UserController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.collider.CompareTag("suelo"))
+        {
+            suelo = true;
+        }
         /*if (collision.collider.CompareTag("Seta"))
 
         {
@@ -165,7 +194,14 @@ public class UserController : MonoBehaviour
 
 
         }
-        public void Dano_Player(int a)
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("suelo"))
+        {
+            suelo = false;
+        }
+    }
+        public void Daño_Player(int a)
         {
          vida = vida - a;
         }

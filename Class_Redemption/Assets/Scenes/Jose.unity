@@ -132,7 +132,7 @@ PrefabInstance:
     - target: {fileID: 4534626113245823940, guid: cddf61be0608a344981f9afe69828789,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.7767695
+      value: -4.1
       objectReference: {fileID: 0}
     - target: {fileID: 4534626113245823940, guid: cddf61be0608a344981f9afe69828789,
         type: 3}
@@ -183,6 +183,42 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704842847244860952, guid: cddf61be0608a344981f9afe69828789,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -72.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704842847244860952, guid: cddf61be0608a344981f9afe69828789,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 671018983778449996, guid: cddf61be0608a344981f9afe69828789,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8887760560165971060, guid: cddf61be0608a344981f9afe69828789,
+        type: 3}
+      propertyPath: m_UsedByEffector
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2026096887916211451, guid: cddf61be0608a344981f9afe69828789,
+        type: 3}
+      propertyPath: santisima
+      value: 
+      objectReference: {fileID: 5486477889729111169, guid: 84b9e6b0bd341f440b9f183628bef127,
+        type: 3}
+    - target: {fileID: 6704842846895054574, guid: cddf61be0608a344981f9afe69828789,
+        type: 3}
+      propertyPath: m_TagString
+      value: suelo
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704842847244860959, guid: cddf61be0608a344981f9afe69828789,
+        type: 3}
+      propertyPath: m_TagString
+      value: suelo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cddf61be0608a344981f9afe69828789, type: 3}

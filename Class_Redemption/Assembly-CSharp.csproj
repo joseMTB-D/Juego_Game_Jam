@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Bombas\santa_bomba.cs" />
     <Compile Include="Assets\Scripts\Player\CameraController.cs" />
     <Compile Include="Assets\Scripts\Player\UserController.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
