@@ -18,6 +18,8 @@ public class UserController : MonoBehaviour
     //armas
     public GameObject santisima;
     public GameObject supersantisima;
+    //contador de santas
+    public int santas;
     //mecanicas
     //contador de bombas santas:
     public int bbsanta;
@@ -30,6 +32,7 @@ public class UserController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        santas = 0;
         suelo = false;
         caida = 0.0f;
         morite = false;
@@ -41,7 +44,8 @@ public class UserController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(suelo);
+
+        Debug.Log(bbsanta);
         if (morite == true)
         {
 
@@ -76,17 +80,37 @@ public class UserController : MonoBehaviour
                 }
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-
-
-                    if (transform.rotation.y == 0)
+                    if (bbsanta > 0)
                     {
-                        Instantiate(santisima, transform.position - new Vector3(0.80f, 0.0f, 0.0f), Quaternion.Euler(0.0f, 180f, 0.0f));
-
+                        if (bbsanta > 10)
+                        {
+                            if (transform.rotation.y == 0)
+                            {
+                                Instantiate(supersantisima, transform.position - new Vector3(0.80f, 0.0f, 0.0f), Quaternion.Euler(0.0f, 180f, 0.0f));
+                                bbsanta = bbsanta - 10;
+                            }
+                            else
+                            {
+                                Instantiate(supersantisima, transform.position + new Vector3(0.80f, 0.0f, 0.0f), transform.rotation);
+                                bbsanta = bbsanta - 10;
+                            }
+                        }
+                        else
+                        {
+                            if (transform.rotation.y == 0)
+                            {
+                                Instantiate(santisima, transform.position - new Vector3(0.80f, 0.0f, 0.0f), Quaternion.Euler(0.0f, 180f, 0.0f));
+                                bbsanta = bbsanta - 1;
+                            }
+                            else
+                            {
+                                Instantiate(santisima, transform.position + new Vector3(0.80f, 0.0f, 0.0f), transform.rotation);
+                                bbsanta = bbsanta-1;
+                            }
+                        }
                     }
-                    else
-                    {
-                        Instantiate(santisima, transform.position + new Vector3(0.80f, 0.0f, 0.0f), transform.rotation);
-                    }
+                   
+                   
 
                 }
                 if ((caida > 1)&&(caida<4))
@@ -116,11 +140,11 @@ public class UserController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.gameObject.CompareTag("Moneda"))
+        if (other.gameObject.CompareTag("santa_pickup"))
         {
             Destroy(other.gameObject);
             bbsanta = bbsanta + 1;
-            Bombas.text = "Monedas: " + bbsanta.ToString();
+            Bombas.text = "Bombas Santas: " + bbsanta.ToString();
         }
 
     }

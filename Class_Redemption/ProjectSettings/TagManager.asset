@@ -7,6 +7,7 @@ TagManager:
   - suelo
   - santa_granada
   - nucke_santa
+  - santa_pickup
   layers:
   - Default
   - TransparentFX
