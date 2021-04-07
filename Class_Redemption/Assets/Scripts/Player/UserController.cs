@@ -45,7 +45,6 @@ public class UserController : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(bbsanta);
         if (morite == true)
         {
 
@@ -86,26 +85,27 @@ public class UserController : MonoBehaviour
                         {
                             if (transform.rotation.y == 0)
                             {
-                                Instantiate(supersantisima, transform.position - new Vector3(0.80f, 0.0f, 0.0f), Quaternion.Euler(0.0f, 180f, 0.0f));
+                                Instantiate(supersantisima, transform.position + new Vector3(-1.20f, 0.0f, 0.0f), transform.rotation);
                                 bbsanta = bbsanta - 10;
                             }
                             else
                             {
-                                Instantiate(supersantisima, transform.position + new Vector3(0.80f, 0.0f, 0.0f), transform.rotation);
-                                bbsanta = bbsanta - 10;
+                                Instantiate(supersantisima, transform.position - new Vector3(-1.20f, 0.0f, 0.0f), Quaternion.Euler(0.0f, 180f, 0.0f));
+                               bbsanta = bbsanta - 10;
                             }
                         }
                         else
                         {
                             if (transform.rotation.y == 0)
                             {
-                                Instantiate(santisima, transform.position - new Vector3(0.80f, 0.0f, 0.0f), Quaternion.Euler(0.0f, 180f, 0.0f));
+                                Instantiate(santisima, transform.position + new Vector3(-1.10f, 0.0f, 0.0f), transform.rotation);
                                 bbsanta = bbsanta - 1;
                             }
                             else
                             {
-                                Instantiate(santisima, transform.position + new Vector3(0.80f, 0.0f, 0.0f), transform.rotation);
+                                Instantiate(santisima, transform.position - new Vector3(-1.20f, 0.0f, 0.0f), Quaternion.Euler(0.0f, 180f, 0.0f));
                                 bbsanta = bbsanta-1;
+
                             }
                         }
                     }
@@ -116,7 +116,6 @@ public class UserController : MonoBehaviour
                 if ((caida > 1)&&(caida<4))
                 {
                     int dañoc = (int)caida * 25;
-                    Debug.Log(caida);
 
                     caida = 0;
                     Daño_Player(dañoc);

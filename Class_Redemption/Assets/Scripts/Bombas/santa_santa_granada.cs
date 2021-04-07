@@ -20,13 +20,11 @@ public class santa_santa_granada : MonoBehaviour
     {
         if (transform.rotation.y == 0)
         {
-            rb2D.velocity = new Vector3(speed, rb2D.velocity.y, 0.0f);
-            Debug.Log(transform.rotation.y);
+            rb2D.velocity = new Vector3(-speed, rb2D.velocity.y, 0.0f);
         }
         else
         {
-            rb2D.velocity = new Vector3(-speed, rb2D.velocity.y, 0.0f);
-            Debug.Log(transform.rotation.y);
+            rb2D.velocity = new Vector3(speed, rb2D.velocity.y, 0.0f);
         }
         desaparece = desaparece + Time.deltaTime;
         if (desaparece > 4)
@@ -37,19 +35,31 @@ public class santa_santa_granada : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        /*
-        if (collision.gameObject.CompareTag("Muerte"))
+
+        if (collision.gameObject.CompareTag("N1"))
         {
-            Debug.Log("Morite");
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
+            collision.gameObject.GetComponent<N1>().daño(100);
+            Destroy(this.gameObject);
 
         }
-       else if(!collision.gameObject.CompareTag("Suelo"))
+        if (collision.gameObject.CompareTag("N2"))
         {
-            Debug.Log("OH NO");
-            Destroy(gameObject);
-        }*/
+            collision.gameObject.GetComponent<N2>().daño(100);
+            Destroy(this.gameObject);
+
+        }
+        if (collision.gameObject.CompareTag("N3"))
+        {
+            collision.gameObject.GetComponent<N2>().daño(100);
+            Destroy(this.gameObject);
+
+        }
+        if (collision.gameObject.CompareTag("boss"))
+        {
+            collision.gameObject.GetComponent<N2>().daño(100);
+            Destroy(this.gameObject);
+
+        }
     }
 }
 

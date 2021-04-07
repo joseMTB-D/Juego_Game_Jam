@@ -8,6 +8,8 @@ TagManager:
   - santa_granada
   - nucke_santa
   - santa_pickup
+  - N1
+  - N2
   layers:
   - Default
   - TransparentFX
