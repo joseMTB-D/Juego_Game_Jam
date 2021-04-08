@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class boss : MonoBehaviour
 {
+    public GameObject jugador;
     private Rigidbody2D rb2D;
     private Animator yubes;
     public int vida;
@@ -13,6 +14,7 @@ public class boss : MonoBehaviour
     public float ataque;
     public float post_ataque;
     public float post_ataque2;
+    public AudioSource N;
 
     public string preataque;
     public string dire;
@@ -80,6 +82,8 @@ public class boss : MonoBehaviour
                     preataque = dire;
                     dire = "ataque";
                     this.gameObject.GetComponent<CircleCollider2D>().enabled = true;
+                    N.Play();
+
                 }
 
                 if (dire.Equals("ataque"))
@@ -119,6 +123,7 @@ public class boss : MonoBehaviour
                 {
                     post_ataque = post_ataque + Time.deltaTime;
                     yubes.SetInteger("N1", 2);
+                    N.Play();
 
                     if (post_ataque > 0.98f)
                     {
@@ -145,6 +150,8 @@ public class boss : MonoBehaviour
         {
             yubes.SetInteger("N1", 4);
             this.gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+            jugador.GetComponent<UserController>().prefinal();
+
         }
     }
 

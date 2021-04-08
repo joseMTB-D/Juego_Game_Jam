@@ -59,8 +59,13 @@
     <Compile Include="Assets\Scripts\Bombas\santa_santa_granada.cs" />
     <Compile Include="Assets\Scripts\Enemys\boss.cs" />
     <Compile Include="Assets\Scripts\Enemys\N1.cs" />
+    <Compile Include="Assets\Scripts\Enemys\N2.cs" />
+    <Compile Include="Assets\Scripts\Menus\Quit.cs" />
+    <Compile Include="Assets\Scripts\Menus\Start.cs" />
+    <Compile Include="Assets\Scripts\Menus\Title.cs" />
     <Compile Include="Assets\Scripts\Player\CameraController.cs" />
     <Compile Include="Assets\Scripts\Player\UserController.cs" />
+    <Compile Include="Assets\Scripts\Player\Vida.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>A:/Estudis/DAM-2/Programació de serveis i processos/Juego_Game_Jam/Class_Redemption/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

@@ -8,10 +8,13 @@ public class santa_santa_granada : MonoBehaviour
     private Rigidbody2D rb2D;
     public float speed;
     private float desaparece;
+    public AudioSource bomba;
+
     // Start is called before the first frame update
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+
         desaparece = 0.0f;
     }
 
@@ -38,23 +41,34 @@ public class santa_santa_granada : MonoBehaviour
 
         if (collision.gameObject.CompareTag("N1"))
         {
+            bomba.Play();
+
             collision.gameObject.GetComponent<N1>().daño(100);
             Destroy(this.gameObject);
 
         }
         if (collision.gameObject.CompareTag("N2"))
         {
+            bomba.Play();
+
             collision.gameObject.GetComponent<N2>().daño(100);
             Destroy(this.gameObject);
 
-        
+
         }
         if (collision.gameObject.CompareTag("boss"))
         {
+            bomba.Play();
+            this.GetComponent<CircleCollider2D>().enabled = false;
             collision.gameObject.GetComponent<boss>().daño(100);
-            Destroy(this.gameObject);
+            Invoke("die", 1.4f);
 
         }
+    }
+    public void die()
+    {
+        Destroy(this.gameObject);
+
     }
 }
 

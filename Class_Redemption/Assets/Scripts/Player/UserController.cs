@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -10,7 +9,7 @@ public class UserController : MonoBehaviour
     //player
     private Rigidbody2D rb2D;
     private Animator yubes;
-    public float vida;
+    public static float vida;
     public float speed;
     public bool morite;
     public float caida;
@@ -20,12 +19,16 @@ public class UserController : MonoBehaviour
     public GameObject supersantisima;
     //contador de santas
     public int santas;
-    //mecanicas
     //contador de bombas santas:
     public int bbsanta;
+ 
     //HUB
     public Text Bombas;
     //public Text tiempo;
+
+
+
+
 
 
 
@@ -47,7 +50,7 @@ public class UserController : MonoBehaviour
 
         if (morite == true)
         {
-
+            Invoke("die", 2);
         }else if (morite == false)
         {
             //movimiento player
@@ -85,13 +88,16 @@ public class UserController : MonoBehaviour
                         {
                             if (transform.rotation.y == 0)
                             {
+
                                 Instantiate(supersantisima, transform.position + new Vector3(-1.20f, 0.0f, 0.0f), transform.rotation);
                                 bbsanta = bbsanta - 10;
+                                Bombas.text = "Bombas Santas: " + bbsanta.ToString();
                             }
                             else
                             {
                                 Instantiate(supersantisima, transform.position - new Vector3(-1.20f, 0.0f, 0.0f), Quaternion.Euler(0.0f, 180f, 0.0f));
                                bbsanta = bbsanta - 10;
+                                Bombas.text = "Bombas Santas: " + bbsanta.ToString();
                             }
                         }
                         else
@@ -100,12 +106,13 @@ public class UserController : MonoBehaviour
                             {
                                 Instantiate(santisima, transform.position + new Vector3(-1.10f, 0.0f, 0.0f), transform.rotation);
                                 bbsanta = bbsanta - 1;
+                                Bombas.text = "Bombas Santas: " + bbsanta.ToString();
                             }
                             else
                             {
                                 Instantiate(santisima, transform.position - new Vector3(-1.20f, 0.0f, 0.0f), Quaternion.Euler(0.0f, 180f, 0.0f));
                                 bbsanta = bbsanta-1;
-
+                                Bombas.text = "Bombas Santas: " + bbsanta.ToString();
                             }
                         }
                     }
@@ -144,6 +151,7 @@ public class UserController : MonoBehaviour
             Destroy(other.gameObject);
             bbsanta = bbsanta + 1;
             Bombas.text = "Bombas Santas: " + bbsanta.ToString();
+
         }
 
     }
@@ -164,19 +172,25 @@ public class UserController : MonoBehaviour
             suelo = false;
         }
     }
-        public void Daño_Player(int a)
+
+  
+    public void Daño_Player(int a)
         {
          vida = vida - a;
         }
-    
+        public void prefinal()
+        {
+        Invoke("win", 6);
+        }
         
         private void die()
         {
-            SceneManager.LoadScene("GameOver");
+            SceneManager.LoadScene("final");
         }
+
         private void win()
         {
-            SceneManager.LoadScene("GameOver");
+            SceneManager.LoadScene("final");
         }
 
     }

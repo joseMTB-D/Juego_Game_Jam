@@ -11,6 +11,8 @@ public class N2 : MonoBehaviour
     public float ataque;
     public float post_ataque;
     public string preataque;
+    public AudioSource N;
+
     public string dire;
     // Start is called before the first frame update
     void Start()
@@ -74,6 +76,8 @@ public class N2 : MonoBehaviour
                 preataque = dire;
                 dire = "ataque";
                 this.gameObject.GetComponent<CircleCollider2D>().enabled = true;
+                N.Play();
+
             }
 
             if (dire.Equals("ataque"))
