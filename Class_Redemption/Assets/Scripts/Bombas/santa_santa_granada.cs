@@ -47,16 +47,11 @@ public class santa_santa_granada : MonoBehaviour
             collision.gameObject.GetComponent<N2>().daño(100);
             Destroy(this.gameObject);
 
-        }
-        if (collision.gameObject.CompareTag("N3"))
-        {
-            collision.gameObject.GetComponent<N2>().daño(100);
-            Destroy(this.gameObject);
-
+        
         }
         if (collision.gameObject.CompareTag("boss"))
         {
-            collision.gameObject.GetComponent<N2>().daño(100);
+            collision.gameObject.GetComponent<boss>().daño(100);
             Destroy(this.gameObject);
 
         }

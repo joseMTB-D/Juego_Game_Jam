@@ -57,8 +57,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Bombas\santa_bomba.cs" />
     <Compile Include="Assets\Scripts\Bombas\santa_santa_granada.cs" />
+    <Compile Include="Assets\Scripts\Enemys\boss.cs" />
     <Compile Include="Assets\Scripts\Enemys\N1.cs" />
-    <Compile Include="Assets\Scripts\Enemys\N2.cs" />
     <Compile Include="Assets\Scripts\Player\CameraController.cs" />
     <Compile Include="Assets\Scripts\Player\UserController.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">

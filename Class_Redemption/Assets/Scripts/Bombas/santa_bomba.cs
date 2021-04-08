@@ -48,15 +48,9 @@ public class santa_bomba : MonoBehaviour
             Destroy(this.gameObject);
 
         }
-        if (collision.gameObject.CompareTag("N3"))
-        {
-            collision.gameObject.GetComponent<N2>().daño(100);
-            Destroy(this.gameObject);
-
-        }
         if (collision.gameObject.CompareTag("boss"))
         {
-            collision.gameObject.GetComponent<N2>().daño(1);
+            collision.gameObject.GetComponent<boss>().daño(2);
             Destroy(this.gameObject);
 
         }

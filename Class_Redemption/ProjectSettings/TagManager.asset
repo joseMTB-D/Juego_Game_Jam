@@ -10,6 +10,7 @@ TagManager:
   - santa_pickup
   - N1
   - N2
+  - boss
   layers:
   - Default
   - TransparentFX

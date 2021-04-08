@@ -81,7 +81,7 @@ public class UserController : MonoBehaviour
                 {
                     if (bbsanta > 0)
                     {
-                        if (bbsanta > 10)
+                        if (bbsanta >= 10)
                         {
                             if (transform.rotation.y == 0)
                             {
@@ -153,67 +153,7 @@ public class UserController : MonoBehaviour
         {
             suelo = true;
         }
-        /*if (collision.collider.CompareTag("Seta"))
-
-        {
-            Destroy(collision.gameObject);
-            state = 1;
-            gameObject.GetComponent<CircleCollider2D>().enabled = true;
-        }
-        if (collision.collider.CompareTag("Star"))
-
-        {
-            last = state;
-            Destroy(collision.gameObject);
-            star = true;
-            
-           
-        }
        
-        if (collision.collider.CompareTag("flo"))
-
-            {
-                Destroy(collision.gameObject);
-                state = 2;
-                gameObject.GetComponent<CircleCollider2D>().enabled = true;
-            }
-
-            if (collision.collider.CompareTag("win"))
-            {
-                Invoke("win", 4);
-            
-        }
-
-            if (collision.collider.CompareTag("Muerte"))
-            {
-            if (star)
-            {
-                Destroy(collision.gameObject);
-            }
-            else
-            {
-                if (state == 2)
-                {
-                    state = 1;
-                }
-                if (state == 1)
-                {
-                    state = 0;
-                    gameObject.GetComponent<CircleCollider2D>().enabled = false;
-                }
-                if (state == 0)
-                {
-
-                    Debug.Log(vidas);
-                    EPMario.SetBool("morite", true);
-                    morite = false;
-                    Invoke("die", 4);
-
-                }
-
-            }
-
-            }*/
 
 
         }

@@ -1,25 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class N2 : MonoBehaviour
 {
     private Rigidbody2D rb2D;
     private Animator yubes;
     public int vida;
-    public bool at;
     public float speed;
     public float andares;
     public float ataque;
     public float post_ataque;
-    public float post_ataque2;
-
     public string preataque;
     public string dire;
     // Start is called before the first frame update
     void Start()
     {
-        at = false;
         preataque = "";
         dire = "izquierda";
         post_ataque = 0.0f;
@@ -72,71 +67,35 @@ public class N2 : MonoBehaviour
                 }
             }
 
-            if (at == false)
+
+            if (ataque > 4)
             {
-                if (ataque > 4)
-                {
-                    ataque = 0.0f;
-                    preataque = dire;
-                    dire = "ataque";
-                    this.gameObject.GetComponent<CircleCollider2D>().enabled = true;
-                }
-
-                if (dire.Equals("ataque"))
-                {
-                    post_ataque = post_ataque + Time.deltaTime;
-                    yubes.SetInteger("N1", 1);
-
-                    if (post_ataque > 0.98f)
-                    {
-                        this.gameObject.GetComponent<CircleCollider2D>().enabled = false;
-                        post_ataque = 0.0f;
-
-                        if (preataque.Equals("izquierda"))
-                        {
-                            dire = "derecha";
-                        }
-                        if (preataque.Equals("derecha"))
-                        {
-                            dire = "izquierda";
-                        }
-                    }
-
-                }
-                at = true;
+                ataque = 0.0f;
+                preataque = dire;
+                dire = "ataque";
+                this.gameObject.GetComponent<CircleCollider2D>().enabled = true;
             }
-            if (at == true)
+
+            if (dire.Equals("ataque"))
             {
-                if (ataque > 4)
-                {
-                    ataque = 0.0f;
-                    preataque = dire;
-                    dire = "ataque";
-                    this.gameObject.GetComponent<CircleCollider2D>().enabled = true;
-                }
+                post_ataque = post_ataque + Time.deltaTime;
+                yubes.SetInteger("N1", 1);
 
-                if (dire.Equals("ataque"))
+                if (post_ataque > 0.98f)
                 {
-                    post_ataque = post_ataque + Time.deltaTime;
-                    yubes.SetInteger("N1", 2);
+                    this.gameObject.GetComponent<CircleCollider2D>().enabled = false;
+                    post_ataque = 0.0f;
 
-                    if (post_ataque > 0.98f)
+                    if (preataque.Equals("izquierda"))
                     {
-                        this.gameObject.GetComponent<CircleCollider2D>().enabled = false;
-                        post_ataque = 0.0f;
-
-                        if (preataque.Equals("izquierda"))
-                        {
-                            dire = "derecha";
-                        }
-                        if (preataque.Equals("derecha"))
-                        {
-                            dire = "izquierda";
-                        }
+                        dire = "derecha";
                     }
-
+                    if (preataque.Equals("derecha"))
+                    {
+                        dire = "izquierda";
+                    }
                 }
-                at = false;
+
             }
 
 
@@ -171,3 +130,4 @@ public class N2 : MonoBehaviour
         }
     }
 }
+

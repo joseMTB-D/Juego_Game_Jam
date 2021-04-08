@@ -256,6 +256,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: N2
       objectReference: {fileID: 0}
+    - target: {fileID: 3175709200744077563, guid: cddf61be0608a344981f9afe69828789,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8079521017051828056, guid: cddf61be0608a344981f9afe69828789,
         type: 3}
       propertyPath: m_Offset.x
@@ -280,6 +285,11 @@ PrefabInstance:
         type: 3}
       propertyPath: speed
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1415904725479866299, guid: cddf61be0608a344981f9afe69828789,
+        type: 3}
+      propertyPath: speed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cddf61be0608a344981f9afe69828789, type: 3}
